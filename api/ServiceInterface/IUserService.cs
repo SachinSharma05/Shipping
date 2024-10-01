@@ -6,6 +6,6 @@ namespace api.Interface
     {
         Task<User> ValidateUserAsync(string username, string password);
         string GenerateJwtToken(User user);
-        Task RegisterUserAsync(User user);
+        Task<bool> RegisterUserAsync(RegisterUser user);
     }
 }

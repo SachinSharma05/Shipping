@@ -4,7 +4,7 @@ namespace api.RepositoryInterface
 {
     public interface IUserRepository
     {
-        Task<User> GetByUsernameAsync(string username); // Fetch a user by username
-        Task AddUserAsync(User user); // Add a new user to the database
+        Task<User> GetByUsernameAsync(string username, string password); // Fetch a user by username
+        Task<bool> RegisterUserAsync(RegisterUser user); // Add a new user to the database
     }
 }

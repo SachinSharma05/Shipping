@@ -9,6 +9,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using Microsoft.Extensions.DependencyInjection;
+using api.Entities.User;
+using Microsoft.AspNetCore.Identity;
 
 namespace api
 {
@@ -64,6 +66,7 @@ namespace api
             // Register your services and repositories
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 
             services.AddSwaggerGen(c =>
             {
@@ -95,6 +98,12 @@ namespace api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                    c.RoutePrefix = "swagger";  // This makes Swagger UI accessible at the root URL, i.e., https://localhost:<port>/.
+                });
             }
             else
             {

@@ -34,7 +34,27 @@ namespace api.Controllers
             // Generate JWT token (optional)
             var token = _userService.GenerateJwtToken(user);
 
-            return Ok(new { Token = token, Username = user.UserName });
+            return Ok(
+                new 
+                { 
+                    Token = token, 
+                    Username = user.UserName 
+                }
+            );
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(RegisterUser registerUser)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _userService.RegisterUserAsync(registerUser);
+
+            if (!result)
+                return BadRequest("User with the same email or username already exists");
+
+            return Ok("User registered successfully");
         }
     }
 }
