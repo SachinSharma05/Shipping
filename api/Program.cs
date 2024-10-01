@@ -3,7 +3,7 @@ using api;
 var builder = WebApplication.CreateBuilder(args);
 
 // Create an instance of the Startup class
-var startup = new Startup();
+var startup = new Startup(builder.Configuration);
 
 // Call the ConfigureServices method on the Startup instance
 startup.ConfigureServices(builder.Services);

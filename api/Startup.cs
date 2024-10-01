@@ -8,15 +8,22 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace api
 {
     public class Startup
     {
         private readonly IConfiguration _config;
+
+        public Startup(IConfiguration configuration)
+        {
+            _config = configuration;
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
-            var key = Encoding.ASCII.GetBytes(_config["Jwt:Key"]);  // Make sure to use the same key
+            var key = Encoding.ASCII.GetBytes(_config["Jwt:Key"]);
 
             services.AddAuthentication(x =>
             {
