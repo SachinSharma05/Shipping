@@ -1,44 +1,75 @@
-<!-- <div class="login-container">
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-    <h3 class="text-center text-white pt-5">Login form</h3>
-    <div *ngIf="errorMessage" class="error-message">
-      {{ errorMessage }}
-    </div>
-    <div class="container">
-      <div id="login-row" class="row justify-content-center align-items-center">
-        <div id="login-column" class="col-md-6">
-          <div id="login-box" class="col-md-12">
-            <h3 class="text-center text-info">Login</h3>
-            <div class="form-group">
-              <label for="username" class="text-info">Username:</label><br>
-              <input type="text" [(ngModel)]="username" name="username" id="username" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="password" class="text-info">Password:</label><br>
-              <input type="password" [(ngModel)]="password" name="password" id="password" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-info btn-md" [disabled]="loginForm.invalid">Submit</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
-</div> -->
+<div class="bg-light dark:bg-transparent min-vh-100 d-flex flex-row align-items-center">
+  <c-container breakpoint="md">
+    <c-row class="justify-content-center">
+      <c-col lg="7" xl="5">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <!-- Bind the form submit to the onSubmit() function -->
+              <form (ngSubmit)="onSubmit()">
+                <h1>Login</h1>
+                <p class="text-body-secondary">Sign In to your account</p>
 
-<div class="login-container">
-  <h2>Login</h2>
-  <form (ngSubmit)="onSubmit()">
-    <div>
-      <label for="username">Username</label>
-      <input type="text" id="username" [(ngModel)]="username" name="username" required />
-    </div>
-    <div>
-      <label for="password">Password</label>
-      <input type="password" id="password" [(ngModel)]="password" name="password" required />
-    </div>
-    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-    <button type="submit">Login</button>
-  </form>
+                <!-- Bind the username and password to the component properties using ngModel -->
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input
+                    autoComplete="username"
+                    cFormControl
+                    placeholder="Username"
+                    [(ngModel)]="username"
+                    name="username"
+                    required
+                  />
+                </c-input-group>
+
+                <c-input-group class="mb-4">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input
+                    autoComplete="current-password"
+                    cFormControl
+                    placeholder="Password"
+                    type="password"
+                    [(ngModel)]="password"
+                    name="password"
+                    required
+                  />
+                </c-input-group>
+
+                <c-row>
+                  <c-col xs="6">
+                    <!-- Ensure the button is inside the form and is type="submit" -->
+                    <button cButton class="px-4" color="primary" type="submit">
+                      Login
+                    </button>
+                  </c-col>
+                  <c-col class="text-right" xs="6">
+                    <button cButton class="px-0" color="link">
+                      Forgot password?
+                    </button>
+                  </c-col>
+                </c-row>
+              </form>
+            </c-card-body>
+          </c-card>
+
+          <!-- <c-card [ngStyle]="{'minWidth.%': 44}" class="text-white bg-primary py-5">
+            <c-card-body class="text-center">
+              <div>
+                <h2>Sign up</h2>
+                <p>Register new user</p>
+                <button [active]="true" cButton class="mt-3" color="primary" routerLink="/register">
+                  Register Now!
+                </button>
+              </div>
+            </c-card-body>
+          </c-card> -->
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
 </div>
