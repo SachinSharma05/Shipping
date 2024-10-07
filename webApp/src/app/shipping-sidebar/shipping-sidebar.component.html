@@ -1,0 +1,16 @@
+<div class="wrapper">
+<!-- CoreUI Sidebar -->
+<c-sidebar visible #sidebar1="cSidebar" class="border-end">
+  <c-sidebar-header class="border-bottom">
+    <c-sidebar-brand>VIS Shipping</c-sidebar-brand>
+  </c-sidebar-header>
+
+  <!-- Sidebar Navigation -->
+  <c-sidebar-nav [navItems]="navItems"></c-sidebar-nav>
+
+  <!-- Sidebar Footer -->
+  <c-sidebar-footer class="border-top" toggle="unfoldable" style="cursor: pointer;">
+    <button cSidebarToggler>Toggle Sidebar</button>
+  </c-sidebar-footer>
+</c-sidebar>
+</div>

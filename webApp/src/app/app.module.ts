@@ -8,14 +8,21 @@ import { HomeComponent } from './home/home.component';
 
 import { IconModule } from '@coreui/icons-angular';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { ContainerComponent, RowComponent, ColComponent, CardGroupComponent, TextColorDirective, CardComponent, CardBodyComponent, FormDirective, InputGroupComponent, InputGroupTextDirective, FormControlDirective, ButtonDirective } from '@coreui/angular';
+import { ContainerComponent, RowComponent, ColComponent, CardGroupComponent, TextColorDirective, CardComponent, CardBodyComponent, FormDirective, InputGroupComponent, InputGroupTextDirective, FormControlDirective, ButtonDirective, WidgetStatAComponent } from '@coreui/angular';
 import { HttpClientModule } from '@angular/common/http';
+import { ShippingSidebarComponent } from './shipping-sidebar/shipping-sidebar.component';
+import { SidebarModule, HeaderModule } from '@coreui/angular';
+import { ShippingHeaderComponent } from './shipping-header/shipping-header.component';
+import { ShippingDashboardComponent } from './shipping-dashboard/shipping-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ShippingSidebarComponent,
+    ShippingHeaderComponent,
+    ShippingDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,10 @@ import { HttpClientModule } from '@angular/common/http';
     InputGroupComponent,
     InputGroupTextDirective,
     FormControlDirective,
-    ButtonDirective
+    ButtonDirective,
+    SidebarModule,
+    HeaderModule,
+    WidgetStatAComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
